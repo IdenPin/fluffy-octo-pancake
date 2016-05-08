@@ -1,0 +1,170 @@
+@charset "utf-8";
+
+@mixin block-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin border-radius($border...) {
+  border-radius: $border;
+  -o-border-radius: $border;
+  -webkit-border-radius: $border;
+  -moz-border-radius: $border;
+}
+
+/*
+@triangle三角形(方向,尺寸,颜色)
+*/
+@mixin triangle($direction, $size, $borderColor ) {
+  content: "";
+  height: 0;
+  width: 0;
+  @if $direction == top {
+    border-bottom: $size solid $borderColor;
+    border-left: $size dashed transparent;
+    border-right: $size dashed transparent;
+  } @else if $direction == right {
+    border-left: $size solid $borderColor;
+    border-top: $size dashed transparent;
+    border-bottom: $size dashed transparent;
+  } @else if $direction == bottom {
+    border-top: $size solid $borderColor;
+    border-left: $size dashed transparent;
+    border-right: $size dashed transparent;
+  } @else if $direction == left {
+    border-right: $size solid $borderColor;
+    border-top: $size dashed transparent;
+    border-bottom: $size dashed transparent;
+  }
+}
+
+/*
+@clearfix清楚浮动
+'%'-为占位符,页面使用了才渲染
+引用@extend %clearfix;
+*/
+%clearfix {
+  *zoom: 1;
+  &:after,
+  &:before {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+    overflow: hidden;
+  }
+}
+
+/*
+设置宽高
+length($var)表示获取变量的长度，nth($var,index)获取变量第几个位置的值.
+unitless判断是否无单位.if(unitless($width), $width + px, $width)其实是个三目判断
+*/
+@mixin size($size...) {
+  $size: if(length($size) > 0, $size, auto);
+  $width: nth($size, 1);
+  $height: nth($size, length($size));
+  @if $width != auto {
+    $width: if(unitless($width), $width + px, $width);
+  }
+  @if $height != auto {
+    $height: if(unitless($height), $height + px, $height);
+  }
+  width: $width;
+  height: $height;
+}
+
+//变量依次为：字体大小，边框颜色，focus时边框颜色，圆角大小
+//$simpleForm: 12px $gray #52a8ec $baseRadius !default;
+//%simple-form-basic {
+//  border: 1px solid nth($simpleForm, 2);
+//  padding: 4px;
+//  @if not(unitless(nth($simpleForm,4))) {
+//    border-radius: nth($simpleForm, 4);
+//  }
+//  &:focus {
+//    outline: 0 none;
+//  }
+//}
+
+//通过先定义@mixin，然后在%调用@mixin来实现传递变量
+@mixin float($float:left) {
+  float: $float;
+}
+
+%float-right {
+  @include float(right);
+}
+
+/*
+  简单的百分比网格系统
+*/
+$columns: 24;
+$gutter: 2em;
+
+%grid {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: {
+    left: $gutter / 2;
+    right: $gutter / 2;
+  }
+}
+
+@mixin grid($width: 1) {
+  @extend %grid;
+  width: percentage($width);
+}
+
+@for $column from 1 through $columns {
+  .grid-#{$column} {
+    @include grid(1 / $column);
+  }
+}
+
+/*
+px-rem
+//SCSS
+.wrapper {
+    @include remCalc(width,45);
+    @include remCalc(margin,1,.5,2,3);
+}
+//CSS
+.wrapper {
+  width: 720px;
+  width: 45rem;
+  margin: 16px 8px 32px 48px;
+  margin: 1rem 0.5rem 2rem 3rem; }
+*/
+//去掉一个值的单位，如12px => 12
+@function strip-units($number){
+  @return $number / ($number * 0 + 1);
+}
+//px-rem
+@mixin remCalc($property, $values...) {
+  $max: length($values);//返回$values列表的长度值
+  $pxValues: '';
+  $remValues: '';
+  @for $i from 1 through $max {
+    $value: strip-units(nth($values, $i));//返回$values列表中的第$i个值，并将单位值去掉
+    $browser-default-font-size: strip-units($browser-default-font-size);
+    $pxValues: #{$pxValues + $value * $browser-default-font-size}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $value: strip-units(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+
+  #{$property}: $pxValues;
+  #{$property}: $remValues;
+}

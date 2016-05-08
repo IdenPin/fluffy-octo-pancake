@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <title>芝麻开门-登录</title>
+    <script src="dist/jquery-2.1.4.min.js"></script>
+    <!-- <script src="dist/handlebars.min.js"></script> -->
+    <!-- <script src="dist/ajaxfileupload.js"></script> -->
+    <script src="dist/login.js"></script>
+</head>
+
+<body>
+
+    <!-- banner start -->
+    <div class="banner">
+        <h1>欢迎来到 芝麻开门</h1>
+    </div>
+    <!-- banner end -->
+
+    <!-- tab -->
+    <div class="tab-area">
+        <div class="tab active" tab-name="login-tab">登录</div>
+        <div class="tab" tab-name="register-tab">注册</div>
+        <div class="right-padding"></div>
+    </div>
+    <!-- content -->
+    <div class="content">
+        <div tab-content="login-tab">
+            <form id="loginForm">
+                <input id="loginName" type="email" name="" placeholder="请输入账号">
+                <div id="tip-email-login" class="tip first-tip">* 对不起，邮箱输入错误</div>
+                <input id="loginPassword" type="password" name="" placeholder="请输入密码">
+                <div id="tip-password-login" class="tip second-tip">* 对不起，密码输入错误</div>
+                <div class="btn-area">
+                    <button id="loginBtn" class="btn_primary" type="submit">确定</button>
+                </div>
+            </form>
+        </div>
+        <div tab-content="register-tab">
+            <form id="registerForm">
+                <input id="register-nickname" type="text" placeholder="请填写昵称">
+                <div id="tip-nick" class="tip first-tip">* 对不起，该昵称不太好听</div>
+
+                <input id="register-email" type="email" name="email" placeholder="请输入常用邮箱">
+                <div id="tip-email" class="tip second-tip">* 对不起，邮箱已经注册</div>
+
+                <input id="register-password" type="password" name="password" placeholder="请设置密码">
+                <div id="tip-password" class="tip third-tip">* 密码至少6位</div>
+
+                <input id="register-password2" type="password" name="password" placeholder="请再次输入密码">
+                <div id="tip-password2" class="tip forth-tip">* 两次输入不一致</div>
+
+                <div class="btn-area register-btn">
+                    <button class="btn_primary " type="submit">确定</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    </body>
+</html>

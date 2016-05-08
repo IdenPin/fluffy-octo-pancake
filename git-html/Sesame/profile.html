@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <script src="dist/jquery-2.1.4.min.js"></script>
+    <!-- <script src="dist/jquery.form.min.js"></script> -->
+    <script src="dist/handlebars.min.js"></script>
+    <script src="dist/profile.js"></script>
+    <script src="dist/jquery.upload_preview.min.js"></script>
+    <script src="dist/cropbox.js"></script>
+</head>
+<body>
+
+<!-- banner start -->
+<div class="banner">
+    <h1 id="bannerH1">个人中心</h1>
+</div>
+<!-- banner end -->
+
+<!-- profile start -->
+<div class="profile">
+    <div class="show-profile">
+        <img class="gear">
+        <div class="first-col">
+            <img id="personal-avatar">
+            <div id="nick-name" class="name"></div>
+            <div class="info">
+                <span class="title">介绍：</span>
+                <span id="info"></span>
+            </div>
+        </div>
+        <div class="second-col">
+            <table>
+                <tr>
+                    <td>联系方式</td>
+                    <td id="number"></td>
+                </tr>
+                <tr>
+                    <td>公司/组织</td>
+                    <td id="org"></td>
+                </tr>
+                <tr>
+                    <td>关注领域</td>
+                    <td id="area"></td>
+                </tr>
+                <tr>
+                    <td>职务</td>
+                    <td id="position"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="edit-profile">
+        <form id="editProfileSubmit">
+            <table>
+                <tr>
+                    <td>上传头像</td>
+                    <td>
+                        <div id="editAvatar" class="uploadImage">
+                            <!--<input name="user_avatar" type="file" accept="image/gif, image/jpeg, image/png" id="avatarImg">-->
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>昵称</td>
+                    <td>
+                        <input name="user_nickname" id="editNickname" type="text" placeholder="请输入昵称">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="intro">一句话简介</td>
+                    <td>
+                        <textarea name="user_intro" id="editIntro" placeholder="请输入一句话来介绍自己"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>联系方式</td>
+                    <td>
+                        <input name="user_mobile" id="editMobile" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td>公司/组织</td>
+                    <td>
+                        <input name="user_org" id="editOrg" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td>职务</td>
+                    <td>
+                        <input name="user_position" id="editPos" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td>关注领域</td>
+                    <td>
+                        <input name="user_focus_area" id="editFocus" type="text">
+                    </td>
+                </tr>
+            </table>
+            <div class="btn-area">
+                <button id="cancelEditProfile" class="btn_default" type="button" name="button">取消</button>
+                <button class="btn_primary" type="submit" name="button">确定</button>
+            </div>
+        </form>
+    </div>
+
+    <!--头像截取上传-->
+
+    <div id="subImgModal" class="modal">
+        <div class="close"></div>
+        <div class="container">
+            <div class="imageBox">
+                <div class="thumbBox"></div>
+                <div class="spinner" style="display: none"></div>
+            </div>
+            <div class="action">
+                <div class="new-contentarea tc">
+                    <a href="javascript:void(0)" class="upload-img">
+                        <label for="upload-file">请先选择图片...</label>
+                    </a>
+                    <input type="file" class="" name="upload-file" id="upload-file"/>
+                </div>
+                <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+">
+                <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-">
+                <input type="button" id="confirmBtn" class="Btnsty_peyton" value="ok">
+            </div>
+            <div class="cropped">
+                <img id="thumbnail" src="" align="absmiddle">
+            </div>
+        </div>
+    </div>
+    <div class="mask"></div>
+</div>
+<!-- profile end -->
+</body>
+
+</html>

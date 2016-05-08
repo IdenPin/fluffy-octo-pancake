@@ -1,0 +1,73 @@
+body, div, ul, ol, li, p, h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+h1, h2, h3 {
+    font-weight: normal;
+}
+img {
+    border: 0
+}
+
+/**
+ * 这里要给body设置一个最小高度
+ * 因为模态框的高度比较大，body可能放不下
+ */
+body {
+    min-height: 900px;
+    font-family: 'Microsoft YaHei', 'Helvetica', 'Arial', 'SimHei', sans-serif;
+    position: relative;
+    background-color: $body-bg;
+}
+input, select,button {
+    outline: 0;
+    border: 0;
+}
+input, select, button,textarea {
+    font-family: 'Microsoft YaHei', 'Helvetica', 'Arial', 'SimHei', sans-serif;
+}
+input, select {
+    font-size: 15px;
+    padding-left: 20px;
+    border-radius: 2px;
+    background-color: $input-bg;
+}
+.btn_primary {
+    border: 0;
+    border-radius: 2px;
+    font-size: 15px;
+    color: #333;
+    background-color: $btn-bg;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out; /* Firefox 4 */
+    -webkit-transition: 0.3s ease-in-out; /* Safari 和 Chrome */
+    -o-transition: 0.3s ease-in-out;
+
+    &:hover {
+        background-color: $btn-bg-hover;
+    }
+}
+.btn_default {
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    font-size: 15px;
+    color: #333;
+    background-color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out; /* Firefox 4 */
+    -webkit-transition: 0.3s ease-in-out; /* Safari 和 Chrome */
+    -o-transition: 0.3s ease-in-out;
+
+    &:hover {
+        background-color: #eee;
+    }
+}

@@ -1,0 +1,23 @@
+/**
+ * 个人收藏页的css
+ */
+//变量
+@import '../common/variables';
+
+//reset
+@import '../common/reset';
+
+//header
+@import '../common/header';
+
+//banner
+@import '../list/banner';
+
+// //主要内容区
+@import 'collections';
+
+//body设置最小高度
+@import '../index/body';
+
+// mask
+@import '../common/modal';

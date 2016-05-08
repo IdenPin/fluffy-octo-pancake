@@ -1,0 +1,80 @@
+.card-area {
+    min-height: 600px;
+    max-width: 1321px;//single card width 264px
+    margin: 0 auto;
+    padding: 44px 0;
+    overflow:hidden;
+
+    .card {
+        position: relative;
+        margin: 0 32px 40px;
+        width: 200px;
+        height: 268px;
+        border-radius: 4px;
+        overflow: hidden;
+        float: left;
+        background-color: $card-bg;
+        cursor: pointer;
+        -webkit-box-shadow: 0px 3px 6px 0px rgba(181, 184, 186, 0.36);
+        -moz-box-shadow: 0px 3px 6px 0px rgba(181, 184, 186, 0.36);
+        box-shadow: 0px 3px 6px 0px rgba(181, 184, 186, 0.36);
+        // position: absolute; /* this breaks the overflow:hidden in Chrome/Opera */
+        -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+
+        /* this fixes the overflow:hidden in Chrome/Opera */
+
+        // here fix the bug !!!太美妙了！
+        // http://stackoverflow.com/a/10296258
+        &:hover {
+            .mask {
+                opacity: 0;
+            }
+            .back {
+                // background-size: 120%;
+                transform: scale(1.1);
+                -ms-transform: scale(1.1);
+                -webkit-transform: scale(1.1);
+                -o-transform: scale(1.1);
+                -moz-transform: scale(1.1);
+            }
+        }
+        .pic {
+            // border-radius: 14px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 210px;
+            overflow: hidden;
+            // z-index: 0;
+        }
+        .back {
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: 1s ease-in-out;
+            -moz-transition: 1s ease-in-out; /* Firefox 4 */
+            -webkit-transition: 1s ease-in-out; /* Safari 和 Chrome */
+            -o-transition: 1s ease-in-out;
+        }
+        .mask {
+            background-color: #000;
+            opacity: 0.2;
+            // z-index: 100;
+            transition: 0.3s ease-in-out;
+            -moz-transition: 0.3s ease-in-out; /* Firefox 4 */
+            -webkit-transition: 0.3s ease-in-out; /* Safari 和 Chrome */
+            -o-transition: 0.3s ease-in-out;
+        }
+        .title {
+            position: absolute;
+            border-top: 3px solid $card-mid-border;
+            top: 210px;
+            left: 0;
+            width: 100%;
+            font-size: 20px;
+            color: $card-title;
+            line-height: 50px;
+            padding-left: 10px;
+        }
+    }
+}

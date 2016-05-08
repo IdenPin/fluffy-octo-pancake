@@ -1,0 +1,178 @@
+.modal-mask {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+.modal {
+    display:none;
+    opacity: 0;
+    //width: 546px;
+    width: 695px;
+    height: 758px;
+    box-sizing: border-box;
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    margin-top: -(670/2)+px;
+    margin-left: -(546/2)+px;
+    z-index: 1000;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 53px 35px 35px 35px;
+
+    .close {
+        width: 29px;
+        height: 29px;
+        background-image: url(../../image/close.png);
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        cursor: pointer;
+
+         transition: 0.2s ease-in-out;
+            -moz-transition: 0.2s ease-in-out; /* Firefox 4 */
+            -webkit-transition: 0.2s ease-in-out; /* Safari 和 Chrome */
+            -o-transition: 0.2s ease-in-out;
+
+        &:hover {
+            // top: 14px;
+            // right:11px;
+            background-image: url(../../image/close-active.png);
+        }
+    }
+    table {
+        border-collapse: collapse;
+        color: #6c6c6c;
+        font-size: 18px;
+
+        tr {
+            td {
+                vertical-align: top;
+                padding-bottom: 30px;
+
+                &:first-of-type {
+                    padding-top: 5px;
+                }
+                span {
+                    padding: 0 30px 0 10px;
+                }
+            }
+        }
+        .free-label{
+            cursor:pointer;
+        }
+        .star {
+            color: #ed312a;
+        }
+        .oneline_input {
+            width: 324px;
+            height: 41px;
+            box-sizing: border-box;
+        }
+        select {
+            width: 200px;
+            height: 41px;
+            box-sizing: border-box;
+
+            option {
+                background-color: #fff;
+            }
+        }
+        textarea {
+            width: 490px;
+            height: 115px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            font-size: 16px;
+            padding: 10px 10px 10px 20px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            resize: none;
+            background-color: $input-bg;
+        }
+    }
+    .share {
+        width: 322px;
+        height: 55px;
+        position: absolute;
+        bottom: 35px;
+        left: 50%;
+        margin-left: -(322/2)+px;
+    }
+    .file_input_btn {
+        //width: 150px;
+        //height: 150px;
+        border-radius: 5px;
+        position: relative;
+        //overflow: hidden;
+        //background-color: $input-bg;
+        background-size: cover;
+        background-position: center;
+
+        span {
+            display: block;
+            width: 150px;
+            padding: 0;
+            line-height: 150px;
+            text-align: center;
+        }
+        input {
+            position: absolute;
+            font-size: 200px;
+            z-index: 200;
+            top: 0;
+            right: 0;
+            opacity: 0;
+            -ms-filter: 'alpha(opacity=0)';
+            cursor: pointer;
+
+            &:hover+.black_mask {
+                // opacity: 1;
+                -ms-filter: 'alpha(opacity=20)';
+            }
+        }
+
+        /*  .black_mask {
+             position: absolute;
+             z-index: 198;
+             background-color: #000;
+             opacity: 0;
+             -ms-filter: 'alpha(opacity=0)';
+             width: 150px;
+             height: 150px;
+             // color: #000;
+
+             // &:hover {
+             //     // background-color: red;
+             //     opacity: 0.2;
+             //     -ms-filter: 'alpha(opacity=20)';
+             // }
+         } */
+        .up_again {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            width: 150px;
+            height: 150px;
+            opacity: 0;
+            color: #fff;
+            transition: 0.3s ease-in-out;
+            -moz-transition: 0.3s ease-in-out; /* Firefox 4 */
+            -webkit-transition: 0.3s ease-in-out; /* Safari 和 Chrome */
+            -o-transition: 0.3s ease-in-out;
+        }
+        &:hover {
+            .up_again {
+                opacity: 1;
+                background: rgba(0, 0, 0, 0.4);
+            }
+        }
+    }
+}

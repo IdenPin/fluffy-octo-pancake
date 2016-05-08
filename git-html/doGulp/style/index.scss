@@ -1,0 +1,22 @@
+@import "variables";
+body {
+  background: #999;
+  box-sizing: border-box;
+  p {
+    color: $color;
+    //box-shadow: inset 5px 3px 2px #f0a389;
+    transition: all .5s;
+    font-size: 50px;
+  }
+  .box{
+    display: flex;
+    flex: 2;
+    a{
+      display: block;
+    }
+  }
+
+
+
+
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <title>评论详情</title>
+    <script src="dist/jquery-2.1.4.min.js"></script>
+    <script src="dist/handlebars.min.js"></script>
+    <!-- <script src="dist/jquery.form.min.js"></script> -->
+    <script src="dist/comment.js"></script>
+</head>
+
+<body>
+
+    <!-- banner start -->
+    <!-- <div class="banner">
+        <h1 id="bannerH1"></h1>
+    </div> -->
+    <!-- banner end -->
+
+    <!-- comment start -->
+    <div class="comment-area">
+        <!-- 当前web信息 start -->
+        <div id="web-info" class="web-info">
+
+            <script id="webInfo-area-template" type="text/x-handlebars-template">
+
+                <div class="left">
+                    <div class="logo-wrap">
+                        <span>
+                            <a href="{{web_url}}" target="_blank">
+                                <img class="logo" src="{{web_logo}}">
+                            </a>
+                        </span>
+                    </div>
+                    <!-- <div class="right"> -->
+                    {{#if selected}}
+                    <img class="star" status=1 web-id="{{_webId}}"> {{else}}
+                    <img class="star" status=0 web-id="{{_webId}}"> {{/if}}
+                    <!-- </div> -->
+                    <div class="good" web-id="{{_webId}}" like-num="{{web_num_like}}" liked="{{liked}}">
+                        {{#if liked}}
+                        <img class="hand" status=1> {{else}}
+                        <img class="hand" status=0> {{/if}}
+                        <!-- <span class="number">{{web_num_like}}人觉得好</span> -->
+                        <span class="number">{{web_num_like}}</span>
+                    </div>
+                </div>
+                <div class="mid">
+                    <div class="title"><a href="{{web_url}}" target="_blank">{{web_name}}</a></div>
+                    {{#if web_free}}
+                    <span class="pay free">免费</span>
+                    {{else}}
+                    <span class="pay charge">收费</span>
+                    {{/if}}
+                    <p>{{web_intro}}</p>
+                </div>
+            </script>
+        </div>
+        <!-- 当前web信息 end -->
+
+        <!-- 一级评论发表区 start -->
+        <div id="first-comment-area" class="comment big-comment">
+            <textarea placeholder="发表评论……"></textarea>
+            <div class="comment-btn-area">
+                <button id="first-comment-btn" floor="0" class="ok" type="button" name="button">发表</button>
+                <!-- <button class="cancel" type="button" name="button">取消回复</button> -->
+            </div>
+        </div>
+        <!-- 一级评论发表区 end -->
+
+        <!-- 具体评论展现区 start -->
+
+        <div id="comment-detail" class="comment-detail">
+        </div>
+
+        <script id="comment-detail-area-template" type="text/x-handlebars-template">
+            {{#each data}}
+            <div class="card">
+                <div class="comment-person">
+                    <img src="{{user_avatar}}">
+                    <span class="name">{{user_name}}</span>
+                    <span class="info">({{user_intro}})</span>
+                    <span class="date">{{com_date}}</span>
+                    <span class="floor">{{floor}}F</span>
+                </div>
+                <div class="first-comment">
+                    <p>{{com_content}}</p>
+                    <div to-user-id="{{user_id}}" to-user-name="{{user_name}}" web-id="{{_webId}}" floor="{{floor}}" class="reply">回复</div>
+                </div>
+                <div class="other-comment">
+                    <ul floor="{{floor}}">
+                        {{#each child}}
+                        <li>
+                            <p>{{user_name}}：
+                                <span class="at">@{{to_user_name}}</span> {{com_content}}</p>
+                            <div web-id="{{_webId}}" to-user-id="{{user_id}}" to-user-name="{{user_name}}" floor="{{floor}}" class="reply">回复</div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="comment small-comment" floor="{{floor}}">
+                    <textarea name="name" rows="8" cols="40"></textarea>
+                    <div class="comment-btn-area">
+                        <button class="ok" type="button" name="button">确认回复</button>
+                        <button class="cancel" type="button" name="button">取消回复</button>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </script>
+
+
+
+        <!-- 具体评论展现区 end -->
+    </div>
+    <!-- comment end -->
+
+</body>
+
+</html>

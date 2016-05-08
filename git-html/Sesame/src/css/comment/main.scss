@@ -1,0 +1,32 @@
+/**
+ * 评论详情页的css
+ */
+//变量
+@import '../common/variables';
+
+//reset
+@import '../common/reset';
+
+//header
+@import '../common/header';
+
+//back2top
+@import '../common/back2top';
+
+//banner
+@import '../list/banner';
+
+//webArea
+@import 'webArea';
+
+//commentBox
+@import 'commentBox';
+
+// commentArea
+@import 'commentDetail';
+
+//body设置最小高度
+@import '../index/body';
+
+// mask
+@import '../common/modal';

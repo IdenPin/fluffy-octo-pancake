@@ -1,0 +1,122 @@
+$greyColor: #8b8b8b;
+.banner {
+  position: relative;
+  text-align: center;
+  width: 1000px;
+  height: 108px;
+  margin: 0 auto;
+  #bannerH1 {
+    font-size: 15px;
+    color: $greyColor;
+  }
+  .line-l {
+    position: absolute;
+    left: 205px;
+    height: 1px;
+    width: 217px;
+    background: $greyColor;
+    margin-right: 250px;
+    margin-top: 55px;
+  }
+  .line-r {
+    position: absolute;
+    height: 1px;
+    width: 217px;
+    background: $greyColor;
+    margin-right: 250px;
+    margin-top: 55px;
+    right: -45px;
+    top: 0;
+  }
+}
+
+.container-box {
+  overflow: hidden;
+  width: 1170px;
+  margin: 0 auto;
+  .list-box:nth-child(5n+1) {
+    margin-right: 0;
+  }
+  .list-box {
+    border-radius: 4px;
+    margin: 0 30px 50px 0;
+    background-color: #fff;
+    width: 210px;
+    //height: 415px;
+    float: left;
+    .logo {
+      display: block;
+      border-radius: 4px;
+      height: 115px;
+      width: 100%;
+    }
+    .content {
+      position: relative;
+      height: 185px;
+      box-sizing: border-box;
+      padding: 20px 10px 25px;
+      .title {
+        display: block;
+        font-size: 15px;
+        color: #1b1b1b;
+      }
+      //&:hover {
+      //  .pay {
+      //    transition:all 1s ease-in-out;
+      //    border: 1px solid $greyColor;
+      //  }
+      //}
+    }
+    .good {
+      cursor: pointer;
+      position: absolute;
+      bottom: 25px;
+      left: 15px;
+      .hand {
+        position: absolute;
+        bottom: -5px;
+      }
+      .number {
+        font-size: 13px;
+        text-indent: 35px;
+        display: block;
+        color: $greyColor;
+      }
+    }
+    .pay {
+      width: 34px;
+      height: 18px;
+      line-height: 18px;
+      text-align: center;
+      border-radius: 2px;
+      position: absolute;
+      bottom: 60px;
+      left: 15px;
+      color: $greyColor;
+      font-size: 12px;
+      display: inline-block;
+      border: 1px solid $greyColor;
+      font-family: 'Microsoft YaHei', 'Helvetica', 'Arial', 'SimHei', sans-serif;
+    }
+
+    .sub-title {
+      font-size: 14px;
+      color: $greyColor;
+      height: 37px;
+      margin-top: 12px;
+      line-height: 20px;
+      text-indent: 10px;
+
+      width: 180px;
+      overflow: hidden;
+      text-align: justify;
+    }
+    .mid-start {
+      display: block;
+      position: absolute;
+      top: -14px;
+      right: 12px;
+    }
+
+  }
+}

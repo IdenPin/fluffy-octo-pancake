@@ -1,0 +1,57 @@
+<!-- header start -->
+<div class="header">
+    <div class="colorful"></div>
+    <div class="wrap">
+        <!-- nav -->
+        <ul class="nav-left">
+            <li><a class="brand" href="index.html">芝麻开门</a></li>
+            <!-- <li><a href="javascript:;">项目招募</a></li>
+            <li><a href="javascript:;">发布悬赏</a></li> -->
+        </ul>
+        <!-- search -->
+        <div class="nav-logo">
+            <img id="sesameLogo">
+            <!-- Logo -->
+        </div>
+
+        <!-- avatar -->
+        <div class="top-nav-profile">
+            <img class="avatar">
+            <ul>
+                <div class="triangle"></div>
+                <li id="profileLi"><a href="javascript:;">个人中心</a></li>
+                <li id="collectionsLi"><a href="javascript:;">个人收藏</a></li>
+                <li id="contributionLi"><a href="javascript:;">个人贡献</a></li>
+                <!-- <li id="shareSiteLi"><a href="javascript:;">分享网站</a></li> -->
+                <li id="logoutLi"><a href="javascript:;">退出登录</a></li>
+            </ul>
+        </div>
+        <div class="nav-three">
+            <img class="nav-share-three">
+            <div class="triangle"></div>
+            <div id="nav-cate-list" class="three-list">
+                <!-- 前端模板引擎 handlebars -->
+                <script id="cate-template" type="text/x-handlebars-template">
+
+                    {{#each data}}
+                    <a href="list.html#{{cate_id}}">{{cate_name}}</a>
+
+                    <!-- <div class="card" cate-id="{{cate_id}}">
+                        <div class="pic">
+                            <div class="back pic" style="background-image:url({{cate_url}})"></div>
+                        </div>
+                        <div class="mask pic"></div>
+                        <div class="title">{{cate_name}}</div>
+                    </div> -->
+                    {{/each}}
+
+                </script>
+
+            </div>
+        </div>
+        <div class="nav-share">
+            <img id="shareSiteLi" class="nav-share-img">
+        </div>
+    </div>
+</div>
+<!-- header end -->

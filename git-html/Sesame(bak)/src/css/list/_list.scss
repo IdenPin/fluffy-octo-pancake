@@ -1,0 +1,132 @@
+.list {
+    min-height: 600px;
+    max-width: 1000px;
+    margin: 18px auto 0;
+    // padding: 10px 80px 10px 50px;
+    box-sizing: border-box;
+    background-color: $tab-content-bg;
+
+    li {
+
+        cursor: pointer;
+        height: 153px;
+        padding: 10px 80px 10px 50px;
+        box-sizing: border-box;
+        transition: 0.3s ease-in-out;
+        -moz-transition: 0.3s ease-in-out; /* Firefox 4 */
+        -webkit-transition: 0.3s ease-in-out; /* Safari 和 Chrome */
+        -o-transition: 0.3s ease-in-out;
+
+        &:first-of-type {
+            height: 163px;
+            padding-top: 20px;
+        }
+        &:hover {
+            background-color: #eee;
+        }
+        .left {
+            float: left;
+            margin-right: 30px;
+
+            .logo-wrap {
+                display: table;
+                text-align: center;
+                width: 90px;
+                height: 90px;
+                margin-bottom: 10px;
+
+                span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+                //未知高度的图片垂直居中
+                //定位思路来自
+                //http://stylechen.com/img-middle.html
+                .logo {
+                    display: block;
+                    max-width: 90px;
+                    max-height: 90px;
+                    margin: auto;
+                    border-radius: 5px;
+                }
+            }
+            .good {
+                box-sizing: border-box;
+                width: 90px;
+                height: 33px;
+                line-height: 31px;
+                border-radius: 5px;
+                border: 1px solid #dcdcdc;
+                // cursor: pointer;
+
+                .hand {
+                    vertical-align: middle;
+                    margin: -3px 3px 0 10px;
+                    // padding: 5px 5px 0 6px;
+                }
+                .number {
+                    display: inline-block;
+                    width: 36px;
+                    font-size: 16px;
+                    color: #646464;
+                    text-align: center;
+                }
+            }
+        }
+        .mid {
+            overflow: hidden;
+            font-size: 0;
+            padding-top: 22px;
+
+            .title {
+                display: inline-block;
+                max-width: 560px;
+                // overflow: hidden;
+                font-size: 20px;
+                margin-right: 45px;
+
+                a {
+                    color: #646464;
+
+                    &:hover {
+                        color: #5F6396;
+                    }
+                }
+            }
+            .pay {
+                display: inline-block;
+                font-size: 14px;
+                box-sizing: border-box;
+                width: 49px;
+                height: 24px;
+                line-height: 24px;
+                color: #fff;
+                text-align: center;
+                border-radius: 5px;
+            }
+            .free {
+                background-color: #7ecef4;
+            }
+            .charge {
+                background-color: #f5524c;
+            }
+            p {
+                font-size: 16px;
+                color: #999;
+                margin-top: 40px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+        .right {
+            float: right;
+            width: 44px;
+            margin-top: 10px;
+
+            .star{
+                // cursor:pointer;
+            }
+        }
+    }
+}

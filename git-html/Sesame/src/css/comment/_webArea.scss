@@ -1,0 +1,136 @@
+body{
+    background-color: #fff;
+}
+.comment-area {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1000px;
+    // background-color: #fff;
+    // -webkit-box-shadow: 1px 2px 6px 0px rgba(102,102,102,0.26);
+    // -moz-box-shadow: 1px 2px 6px 0px rgba(102,102,102,0.26);
+    // box-shadow: 1px 2px 6px 0px rgba(102,102,102,0.26);
+}
+.web-info {
+
+    // cursor: pointer;
+    height: 251px;
+    padding: 58px 50px 35px;
+    box-sizing: border-box;
+    .left {
+        float: left;
+        margin-right: 45px;
+        position: relative;
+        .logo-wrap {
+            display: table;
+            text-align: center;
+            width: 210px;
+            height: 115px;
+            span {
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            //未知高度的图片垂直居中
+            //定位思路来自
+            //http://stylechen.com/img-middle.html
+            .logo {
+                display: block;
+                max-width: 210px;//[][][][][][]
+                max-height: 115px;//[][][][][][]
+                // width: 210px;
+                // height: 115px;
+
+                margin: auto;
+                border-radius: 5px;
+            }
+        }
+        .star{
+            position: absolute;
+            top:102px;
+            left: 172px;
+            cursor: pointer;
+        }
+        .good {
+            box-sizing: border-box;
+            margin-top: 18px;
+            width: 150px;
+            // height: 33px;
+            line-height: 33px;
+            border-radius: 5px;
+            // border: 1px solid #dcdcdc;
+
+            cursor: pointer;
+            .hand {
+                vertical-align: middle;
+                // margin: -3px 3px 0 10px;
+
+                // padding: 5px 5px 0 6px;
+            }
+            .number {
+                display: inline-block;
+                // width: 36px;
+                font-size: 14px;
+                color: #9f9f9f;
+                text-align: center;
+            }
+        }
+    }
+    .mid {
+        overflow: hidden;
+        font-size: 0;
+        padding-top: 10px;
+        .title {
+            display: inline-block;
+            max-width: 560px;
+
+            // overflow: hidden;
+            font-size: 16px;
+            margin-right: 45px;
+            a {
+                color: #1b1b1b;
+                &:hover {
+                    color: #5F6396;
+                }
+            }
+        }
+        .pay {
+            display: inline-block;
+            font-size: 12px;
+            box-sizing: border-box;
+            width: 34px;
+            height: 18px;
+            line-height: 16px;
+            color: #9f9f9f;
+            text-align: center;
+            border: 1px solid #9f9f9f;
+            border-radius: 2px;
+        }
+        .free {
+            // background-color: #7ecef4;
+        }
+        .charge {
+            // background-color: #f5524c;
+        }
+        p {
+            line-height: 1.8;
+            font-size: 16px;
+            color: #8b8b8b;
+            margin-top: 20px;
+            height:80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+    }
+    // .right {
+    //     float: right;
+    //     width: 44px;
+    //     margin-top: 10px;
+    //     .star {
+    //
+    //         cursor:pointer;
+    //     }
+    // }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <title>我的贡献</title>
+    <script src="dist/jquery-2.1.4.min.js"></script>
+    <script src="dist/handlebars.min.js"></script>
+    <!-- <script src="http://cn.rapapi.net/rap.plugin.js?projectId=538"></script> -->
+    <!-- <script src="dist/jquery.form.min.js"></script> -->
+    <script src="dist/contributions.js"></script>
+
+</head>
+
+<body>
+
+    <!-- banner start -->
+    <div class="banner">
+        <h1 id="bannerH1">我的贡献</h1>
+    </div>
+    <!-- banner end -->
+
+    <!-- collections start -->
+    <div class="collections">
+        <h2 class="edit-title">点击条目进行修改</h2>
+        <div id="contributions-wrap">
+
+            <!-- 前端模板引擎 handlebars -->
+            <script id="contributions-area-template" type="text/x-handlebars-template">
+
+                {{#each data}}
+                <div class="item">
+                    <a web-id="{{web_id}}" cate-id="{{cate_id}}" web-free="{{web_free}}" web-intro="{{web_intro}}" web-logo="{{web_logo}}" web-url="{{web_url}}" href="javascript:;">{{web_name}}</a>
+                </div>
+                {{/each}}
+
+            </script>
+
+
+            <!--<div class="item">
+                <a href="javascript:;">拉勾网</a>
+            </div>
+            <div class="item">
+                <a href="javascript:;">拉勾网</a>
+            </div>
+            <div class="item">
+                <a href="javascript:;">拉勾网</a>
+            </div>-->
+        </div>
+    </div>
+    <!-- collections end -->
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+.comment-detail {
+    min-height: 300px;
+    .card {
+        border-top: 1px solid #eee;
+        .comment-person {
+
+            // background-color: #eee;
+            padding: 35px 50px 0;
+            position: relative;
+
+            // line-height: 60px;
+            img {
+                width: 60px;
+                height: 60px;
+                border-radius: 58px;
+                border: 2px solid #dfdfdf;
+                vertical-align: middle;
+            }
+            span {
+                padding-left: 18px;
+            }
+            .name {
+                font-size: 18px;
+                color: $word-gray;
+            }
+            .info {
+                font-size: 16px;
+                color: $word-gray;
+            }
+            .date {
+                font-size: 14px;
+                color: #b3b3b3;
+            }
+            .floor {
+                font-size: 16px;
+                color: #f3554c;
+                position: absolute;
+                right: 50px;
+            }
+        }
+        .first-comment {
+            padding-bottom: 36px;
+            position: relative;
+            p {
+                padding: 0 100px 0 135px;
+                font-size: 16px;
+                color: $word-gray;
+                line-height: 1.6;
+            }
+            .reply {
+                color: $banner-word;
+                cursor: pointer;
+                position: absolute;
+                right: 50px;
+            }
+        }
+        .other-comment {
+            padding: 0 100px 36px;
+            ul {
+                background-color: #eff2f5;
+                color: $word-gray;
+                border-radius: 5px;
+                font-size: 16px;
+                // padding: 15px 0 0 35px;
+                li:first-of-type{
+                    padding-top: 15px;
+                    .reply{
+                        top:15px;
+                    }
+                }
+                li{
+                    padding: 0 50px 15px 35px;
+                    position: relative;
+
+                    &:hover{
+                        .reply{
+                            display: block;
+                        }
+                    }
+                    .at{
+                        color: $banner-word;
+                        // cursor: pointer;
+                    }
+                    .reply{
+                        display: none;
+                        color: $banner-word;
+                        cursor: pointer;
+                        position: absolute;
+                        right: 20px;
+                        top:0;
+                    }
+                }
+            }
+        }
+        .small-comment {
+            display: none;
+            padding: 0 100px 35px;
+            textarea {
+                width: 800px;
+            }
+        }
+    }
+}

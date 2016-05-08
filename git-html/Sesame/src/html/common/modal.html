@@ -1,0 +1,296 @@
+<!--<script src="dist/cropbox.js"></script>-->
+<style>
+    /*
+头像截取框
+*/
+    /*.container {*/
+        /*width: 370px;*/
+        /*position: relative;*/
+        /*font-size: 12px;*/
+        /*left:-24px;*/
+    /*}*/
+
+    /*.container p {*/
+        /*line-height: 12px;*/
+        /*line-height: 0px;*/
+        /*height: 0px;*/
+        /*margin: 10px;*/
+        /*color: #bbb*/
+    /*}*/
+
+    /*.action {*/
+        /*margin: 10px 0;*/
+        /*position: absolute;*/
+        /*top: -10px;*/
+        /*right: -110px;*/
+    /*}*/
+
+    /*.cropped {*/
+        /*position: absolute;*/
+        /*right: -145px;*/
+        /*bottom: 0;*/
+        /*!* width: 200px; *!*/
+        /*!* height: 200px; *!*/
+        /*!* border-radius: 50%; *!*/
+        /*text-align: center;*/
+    /*}*/
+
+    /*.imageBox {*/
+        /*position: relative;*/
+        /*height: 250px;*/
+        /*width: 300px;*/
+        /*background: #fff;*/
+        /*overflow: hidden;*/
+        /*background-repeat: no-repeat;*/
+        /*cursor: move;*/
+        /*left: 22px;*/
+        /*border-radius: 4px;*/
+    /*}*/
+
+    /*.imageBox .thumbBox {*/
+        /*position: absolute;*/
+        /*top: 50%;*/
+        /*left: 50%;*/
+        /*width: 210px;*/
+        /*height: 115px;*/
+        /*margin-top: -57px;*/
+        /*!* border-radius: 200px; *!*/
+        /*margin-left: -105px;*/
+        /*box-sizing: border-box;*/
+        /*!* border: 1px solid rgb(102, 102, 102); *!*/
+        /*box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3);*/
+        /*background: none repeat scroll 0% 0% transparent;*/
+    /*}*/
+
+    /*.imageBox .spinner {*/
+        /*position: absolute;*/
+        /*top: 0;*/
+        /*left: 0;*/
+        /*bottom: 0;*/
+        /*right: 0;*/
+        /*text-align: center;*/
+        /*line-height: 400px;*/
+        /*color: #2F2A2A;*/
+        /*background: rgba(213, 211, 211, 0.7);*/
+    /*}*/
+
+
+    /*!*选择文件上传*!*/
+    /*.new-contentarea {*/
+        /*width: 165px;*/
+        /*overflow: hidden;*/
+        /*margin: 0 auto;*/
+        /*position: relative;*/
+        /*float: left;*/
+    /*}*/
+
+    /*.new-contentarea label {*/
+        /*width: 100%;*/
+        /*height: 100%;*/
+        /*display: block;*/
+    /*}*/
+
+    /*.new-contentarea input[type=file] {*/
+        /*width: 120px;*/
+        /*height: 30px;*/
+        /*background: #333;*/
+        /*margin: 0 auto;*/
+        /*position: absolute;*/
+        /*right: 71%;*/
+        /*margin-right: -94px;*/
+        /*top: 0;*/
+        /*right: 0px \9;*/
+        /*cursor: pointer;*/
+        /*margin-right: 0px \9*/
+    /*;*/
+        /*width: 10px \9*/
+    /*;*/
+        /*opacity: 0;*/
+        /*filter: alpha(opacity=0);*/
+        /*z-index: 2;*/
+    /*}*/
+
+    /*a.upload-img {*/
+        /*width: 120px;*/
+        /*display: inline-block;*/
+        /*height: 30px;*/
+        /*line-height: 30px;*/
+        /*font-size: 15px;*/
+        /*color: #FFFFFF;*/
+        /*background-color: #ffc509;*/
+        /*border-radius: 3px;*/
+        /*text-decoration: none;*/
+        /*cursor: pointer;*/
+        /*!* box-shadow: 0px 0px 5px #B0B0B0; *!*/
+    /*}*/
+
+    /*a.upload-img:hover {*/
+        /*background-color: #ffc509;*/
+        /*cursor: pointer;*/
+    /*}*/
+
+    /*.tc {*/
+        /*text-align: center;*/
+    /*}*/
+
+    /*#thumbnail {*/
+        /*display: none;*/
+        /*width: 180px;*/
+        /*border-radius: 4px;*/
+        /*!*box-shadow: 0 0 12px #7E7E7E;*!*/
+    /*}*/
+    /*.modal{*/
+        /*height: 900px;*/
+        /*width: 690px;*/
+        /*margin-left: -345px;*/
+    /*}*/
+</style>
+<!-- black mask -->
+<div class="modal-mask"></div>
+<!-- modal -->
+<div id="shareSiteModal" class="modal">
+    <div class="close"></div>
+    <form id="shareSiteModalForm" action="laravel_LTS/public/api/sites" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>网站名称
+                    <span class="star">*</span>
+                </td>
+                <td>
+                    <input id="webName" name="web_name" class="oneline_input" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>是否免费
+                    <span class="star">*</span>
+                </td>
+                <td>
+                    <input class="free-label" id="freeTrue" type="radio" name="web_free" value="1">
+                    <label class="free-label" for="freeTrue">免费</label>&nbsp;&nbsp;&nbsp;
+                    <input class="free-label" id="freeFalse" type="radio" name="web_free" value="0">
+                    <label class="free-label" for="freeFalse">收费</label>
+                </td>
+            </tr>
+            <tr>
+                <td>选择类别
+                    <span class="star">*</span>
+                </td>
+                <td>
+                    <select name="cate_id" id="webCate">
+                        <option selected value="-1">请选择</option>
+                        <!--<option value="1">设计1</option>
+                        <option value="2">设计2</option>
+                        <option value="3">设计3</option>
+                        <option value="4">设计4</option>-->
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>网站链接
+                    <span class="star">*</span>
+                </td>
+                <td>
+                    <input id="webUrl" class="oneline_input" type="text" name="web_url">
+                </td>
+            </tr>
+            <tr>
+                <td>网站描述</td>
+                <td>
+                    <textarea id="webIntro" cols="30" rows="10" name="web_intro"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>logo上传
+                    <span class="star">*</span>
+                </td>
+                <td>
+                    <div id="previewArea" class="file_input_btn">
+                        <input id="imgInput" name="web_logo" type="file" accept="image/gif, image/jpeg, image/png">
+                        <span>点击选择图片</span>
+                        <div class="up_again">
+                            点击重新
+                            <br>选择图片
+                        </div>
+                    </div>
+                    <!--<div id="previewArea" class="file_input_btn">-->
+                        <!--<div class="container">-->
+
+                            <!--<div class="imageBox">-->
+                                <!--<div class="thumbBox"></div>-->
+                                <!--<div class="spinner" style="display: none"></div>-->
+                            <!--</div>-->
+                            <!--<div class="action">-->
+                                <!--<div class="new-contentarea tc">-->
+                                    <!--<a href="javascript:void(0)" class="upload-img">-->
+                                        <!--<label for="upload-file">请先选择图片...</label>-->
+                                    <!--</a>-->
+                                    <!--<input type="file" class="" name="upload-file" id="upload-file"/>-->
+                                <!--</div>-->
+                                <!--&lt;!&ndash;<input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-">&ndash;&gt;-->
+                                <!--<input type="button" id="confirmBtn" class="Btnsty_peyton" value="ok">-->
+                            <!--</div>-->
+                            <!--<div class="cropped">-->
+                                <!--<img id="thumbnail" src="" align="absmiddle">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </td>
+            </tr>
+        </table>
+        <button type="submit" id="shareSiteBtn" class="btn_primary share">分享网站</button>
+    </form>
+</div>
+<script>
+//   $(function(){
+//       /*
+//        * 图像截取弹层
+//        * */
+//       $('#previewArea').click(function () {
+//           $('.mask').show();
+//           $('#subImgModal').css({
+//               'display': 'block',
+//               'opacity': 1
+//           });
+//           var options = {
+//               thumbBox: '.thumbBox',
+//               spinner: '.spinner',
+//               //读取默认图片
+//               //imgSrc: ''
+//           };
+//           var cropper = $('.imageBox').cropbox(options);
+//           $('#upload-file').on('change', function () {
+//               var reader = new FileReader();
+//               reader.onload = function (e) {
+//                   options.imgSrc = e.target.result;
+//                   cropper = $('.imageBox').cropbox(options);
+//                   //getImg();
+//               };
+//               reader.readAsDataURL(this.files[0]);
+//               this.files = [];
+//               //getImg();
+//           });
+//           function getImg() {
+//               var img = cropper.getDataURL();
+//               //$('.cropped').html('');
+//
+//               $('#thumbnail').attr('src', img).show();
+//           }
+//
+//           $(".imageBox").on("mouseup", function () {
+//               getImg();
+//           });
+//           $('#btnZoomIn').on('click', function () {
+//               cropper.zoomIn();
+//           });
+//           $('#btnZoomOut').on('click', function () {
+//               cropper.zoomOut();
+//           });
+//           $('#confirmBtn').click(function () {
+//               $('.close').click();
+//               $('#previewArea').css('background-image', 'url(' + cropper.getDataURL() + ')');
+//           })
+//       });
+//   })
+</script>
+<!-- modal end -->

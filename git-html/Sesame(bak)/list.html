@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <title>列表页</title>
+    <script src="dist/jquery-2.1.4.min.js"></script>
+    <script src="dist/handlebars.min.js"></script>
+    <!-- <script src="dist/jquery.form.min.js"></script> -->
+    <script src="dist/list.js"></script>
+</head>
+
+<body>
+    <div class="banner">
+        <h1 id="bannerH1"></h1>
+    </div>
+    <!-- banner end -->
+    <!-- list start -->
+    <ul id="list" class="list">
+
+        <!-- 前端模板引擎 handlebars -->
+        <script id="list-area-template" type="text/x-handlebars-template">
+            {{#each list}}
+            <li detail="{{web_id}}">
+                <div class="left">
+                    <div class="logo-wrap">
+                        <span>
+                            <a href=" {{web_url}}" target="_blank">
+                                <img class="logo" src="{{web_logo}}">
+                            </a>
+                        </span>
+                    </div>
+                    <div class="good" web-id="{{web_id}}" like-num="{{web_num_like}}" liked="{{liked}}">
+                        {{#if liked}}
+                        <img class="hand" status=1>
+                        {{else}}
+                        <img class="hand" status=0>
+                        {{/if}}
+                        <span class="number">{{web_num_like}}</span>
+                    </div>
+                </div>
+                <div class="right">
+                    {{#if selected}}
+                    <img class="star" status=1 web-id="{{web_id}}">
+                    {{else}}
+                    <img class="star" status=0 web-id="{{web_id}}">
+                    {{/if}}
+                </div>
+                <div class="mid">
+                    <div class="title"><a href="{{web_url}}" target="_blank">{{web_name}}</a></div>
+                    {{#if web_free}}
+                    <span class="pay free">免费</span>
+                    {{else}}
+                    <span class="pay charge">收费</span>
+                    {{/if}}
+                    <p>{{web_intro}}</p>
+                </div>
+            </li>
+            {{/each}}
+        </script>
+
+    </ul>
+    <!-- list end -->
+
+</body>
+
+</html>

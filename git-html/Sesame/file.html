@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- 本页为测试页面，并无意义 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>file</title>
+    </head>
+    <body>
+        <form id="fff" action="laravel_LTS/public/api/sites" method="post" enctype="multipart/form-data">
+            是否免费
+            <input class="free-label" id="freeTrue" type="radio" name="web_free" value="true">
+            <label class="free-label" for="freeTrue">免费</label>&nbsp;&nbsp;&nbsp;
+            <input class="free-label" id="freeFalse" type="radio" name="web_free" value="">
+            <label class="free-label" for="freeFalse">收费</label>
+            <hr>
+            分类ID
+            <select id="webCate" name="cate_id">
+                <option selected value="-1">请选择</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <hr>
+            网站简介
+            <textarea id="webIntro" cols="30" rows="10" name="web_intro"></textarea>
+            <hr>
+            网站名称
+            <input type="text" name="web_name">
+            <hr>
+            网址
+            <input type="text" name="web_url">
+            <hr>
+            图片
+            <input type="file" name="web_logo">
+            <hr>
+            <button type="submit">submit</button>
+
+        </form>
+        <script src="dist/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript">
+        $('#fff').submit(function() {
+            alert('submit');
+        });
+        </script>
+    </body>
+</html>

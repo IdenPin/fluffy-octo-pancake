@@ -1,0 +1,59 @@
+//footer和header是一体的，所以我把footer import to header.scss
+.footer {
+    background-color: #313131;
+    height: 230px;
+    margin-top: 50px;
+    .wrap {
+        max-width: 1032px;
+        margin: 0 auto;
+        color: #898989;
+        font-size: 14px;
+
+        // overflow: hidden;
+        a {
+            color: #898989;
+            &:hover {
+                color: #afafaf;
+            }
+        }
+        .left {
+            float: left;
+            ul {
+                margin-top: 75px;
+                li {
+                    display: inline-block;
+                    margin-right: 33px;
+                }
+            }
+            p {
+                margin-top: 24px;
+            }
+            .copy {
+                font-size: 12px;
+            }
+        }
+        .right {
+            float: right;
+            .contact-logo {
+                display: inline-block;
+                margin: 90px 20px 0 30px;
+                position: relative;
+                .logo:hover~.qr {
+                    display: block;
+                }
+                .qr {
+                    position: absolute;
+
+                    display: none;
+                    top: -50px;
+                }
+                .weiboqr {
+                    left: 59px;
+                }
+                .wechatqr {
+                    left: -158px;
+                }
+            }
+        }
+    }
+}

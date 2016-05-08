@@ -1,0 +1,67 @@
+
+.content {
+    max-width: 1000px;
+    height: 468px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    padding-top: 50px;
+    background-color: $tab-content-bg;
+    border-left: 1px solid $tab-border;
+    border-right: 1px solid $tab-border;
+    border-bottom: 1px solid $tab-border;
+    input {
+        display: block;
+        margin-left: 65px;
+        margin-bottom: 20px;
+
+        // padding-left: 25px;
+        // font-size: 16px;
+        width: 386px;
+        height: 50px;
+
+        // border-radius: 5px;
+        // color: $input;
+        // background-color: $input-bg;
+    }
+    .btn-area {
+        margin-top: 119px;
+        margin-left: 77px;
+        button {
+            width: 124px;
+            height: 46px;
+        }
+    }
+    .register-btn{
+        margin-top: 49px;
+    }
+    form{
+        position: relative;
+    }
+
+    .tip{
+        display: none;
+        position: absolute;
+        left: 490px;
+        font-size: 14px;
+        color:#ed312a;
+    }
+    .first-tip{
+        top:18px;
+    }
+    .second-tip{
+        top:88px;
+    }
+    .third-tip{
+        top:163px;
+    }
+    .forth-tip{
+        top: 234px;
+    }
+}
+.content>div {
+    display: none;
+}
+.content>div:first-of-type {
+    display: block;
+}

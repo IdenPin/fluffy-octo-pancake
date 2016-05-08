@@ -1,0 +1,23 @@
+/**
+ * 主页的 css
+ */
+
+//变量
+@import '../common/variables';
+
+//reset
+@import '../common/reset';
+
+//header
+@import '../common/header';
+
+//index
+@import 'banner';
+//card-area
+@import 'card-area';
+
+//body设置最小高度
+@import 'body';
+
+// mask
+@import '../common/modal';

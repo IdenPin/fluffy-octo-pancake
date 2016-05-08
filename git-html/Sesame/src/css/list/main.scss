@@ -1,0 +1,24 @@
+/**
+ * 列表页的 css
+ */
+
+//变量
+@import '../common/variables';
+
+//reset
+@import '../common/reset';
+
+//header
+@import '../common/header';
+
+//banner
+@import 'banner';
+
+//body设置最小高度
+@import '../index/body';
+
+//list
+@import 'list';
+
+// mask
+@import '../common/modal';

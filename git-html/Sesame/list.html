@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <title>列表页</title>
+    <script src="dist/jquery-2.1.4.min.js"></script>
+    <script src="dist/handlebars.min.js"></script>
+    <!-- <script src="dist/jquery.form.min.js"></script> -->
+    <script src="dist/list.js"></script>
+</head>
+
+<body>
+<div class="banner">
+    <div class="line-l"></div>
+    <div id="bannerH1"></div>
+    <div class="line-r"></div>
+</div>
+<!-- banner end -->
+<!-- list start -->
+<div class="container-box" id="list">
+    <!--list模板渲染-->
+    <script id="list-area-template" type="text/x-handlebars-template">
+        {{#each list}}
+        <div class="list-box" detail="{{web_id}}">
+            <a href=" {{web_url}}" target="_blank">
+                <img src="{{web_logo}}" class="logo">
+            </a>
+            <div class="content">
+                <div class="good" web-id="{{web_id}}" like-num="{{web_num_like}}" liked="{{liked}}">
+                    {{#if liked}}
+                    <img class="hand" status=1>
+                    {{else}}
+                    <img class="hand" status=0>
+                    {{/if}}
+                    <span class="number">{{web_num_like}}人觉得好</span>
+                </div>
+
+                <a href="{{web_url}}" class="title">{{web_name}}</a>
+                {{#if web_free}}
+                <span class="pay free">免费</span>
+                {{else}}
+                <span class="pay charge">收费</span>
+                {{/if}}
+                <p class="sub-title subText">{{web_intro}}</p>
+
+                <a class="mid-start" href="javascript:void(0)">
+                    {{#if selected}}
+                    <img class="star" status=1 web-id="{{web_id}}">
+                    {{else}}
+                    <img class="star" status=0 web-id="{{web_id}}">
+                    {{/if}}
+                </a>
+
+            </div>
+        </div>
+        {{/each}}
+    </script>
+</div>
+<!-- list end -->
+
+</body>
+
+</html>

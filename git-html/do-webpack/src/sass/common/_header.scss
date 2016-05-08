@@ -1,0 +1,42 @@
+@charset "utf-8";
+@import "common";
+
+.header {
+  height: 515px;
+  background-color: #60d4d4;
+  padding: 40px;
+  box-sizing: border-box;
+  h2 {
+    color: #b3e9e9;
+    font-size: 16px;
+    line-height: 48px;
+    margin-bottom: 20px;
+  }
+  ul > li {
+    width: 100px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #b3e9e9;
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+    }
+  }
+  .active {
+    color: #fff;
+  }
+  .logo {
+    font-size: 250px;
+    text-align: center;
+    line-height: 180px;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
+    text-shadow: 0 0 1px rgba(0,0,0,0.6);
+    color: #fff;
+
+    //text-shadow: 0 2px 3px #0c4890;
+    //color: transparent;
+    //-webkit-background-clip: text;
+    //-moz-background-clip: text;
+    //background-clip: text;
+  }
+}

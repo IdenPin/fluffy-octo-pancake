@@ -1,0 +1,27 @@
+.banner {
+    margin: 2px 0 5px 0;
+    height: 150px;
+    // h1{
+    //     width: 700px;
+    //     position: absolute;
+    //     left:50%;
+    //     margin-left: -350px;
+    //     text-align: center;
+    // }
+    .wrap{
+        max-width: 1300px;
+        margin: 0 auto;
+        color: #f3f3e3;
+        h1{
+            padding: 40px 0 30px;
+            font-size: 34px;
+            font-weight: normal;
+            line-height: 1;
+            color: #f3f3e3;
+        }
+        p{
+            font-size: 15px;
+            line-height: 1;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "sesame",
+  "version": "1.0.0",
+  "description": "芝麻开门",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gao Haoyang",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.1.2",
+    "babel-loader": "^6.0.1",
+    "css-loader": "^0.22.0",
+    "file-loader": "^0.8.4",
+    "html-loader": "^0.4.0",
+    "node-sass": "^3.4.1",
+    "sass-loader": "^3.1.1",
+    "sha1": "^1.1.1",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.3"
+  }
+}

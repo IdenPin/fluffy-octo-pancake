@@ -1,0 +1,111 @@
+@charset "utf-8";
+@import "utils";
+@import "compass/reset";
+
+.header {
+  @include size(500,auto);
+  box-shadow: 1px 0 5px #ccc;
+  background-color: #ccc;
+  @include block-center;
+  ul > li {
+    float: left;
+    background-color: #000;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 10px;
+    @include border-radius(3px);
+    cursor: pointer;
+    &:hover {
+      background-color: #cccccc;
+      color: #000;
+    }
+    ul{
+      display: none;
+      width: 90px;
+      background-color: red;
+    }
+    &:hover ul  {
+      display: block;
+    }
+  }
+  .triangle{
+    @include triangle(bottom,20px,#000);
+  }
+}
+
+
+nav {
+  display: block;
+
+  ul {
+    margin: 50px auto;
+    width: 800px;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: -o-fit-content;
+    width: fit-content;
+    padding: 0;
+    list-style: none;
+
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+      overflow: hidden;
+    }
+
+    li {
+      background: #34495e;
+      float: left;
+      -webkit-transform: skewX(25deg);
+      -moz-transform: skewX(25deg);
+      -o-transform: skewX(25deg);
+      -ms-transform: skewX(25deg);
+      transform: skewX(25deg);
+
+      &:hover {
+        background: #e74c3c;
+      }
+
+      a {
+        display: block;
+        color: #fff;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-family: Arial,Helvetica;
+        font-size: 14px;
+        padding: 1em 2em;
+        -webkit-transform: skewX(-25deg);
+        -moz-transform: skewX(-25deg);
+        -o-transform: skewX(-25deg);
+        -ms-transform: skewX(-25deg);
+        transform: skewX(-25deg);
+      }
+    }
+  }
+}
+
+
+
+%test1 {
+  content:  unquote('Hello Sass!') ;
+}
+%test2 {
+  content: unquote("'Hello Sass!");
+}
+%test3 {
+  content: unquote("I'm Web Designer");
+}
+%test4 {
+  content: unquote("'Hello Sass!'");
+}
+%test5 {
+  content: unquote('"Hello Sass!"');
+}
+.test6 {
+  content: unquote(Hello Sass);
+}

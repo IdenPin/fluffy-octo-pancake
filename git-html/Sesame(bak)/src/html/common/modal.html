@@ -1,0 +1,74 @@
+<!-- black mask -->
+<div class="modal-mask"></div>
+<!-- modal -->
+<div id="shareSiteModal" class="modal">
+    <div class="close"></div>
+    <form id="shareSiteModalForm" action="laravel_LTS/public/api/sites" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>网站名称
+                    <span class="star">*</span>
+                </td>
+                <td>
+                    <input id="webName" name="web_name" class="oneline_input" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>是否免费
+                    <span class="star">*</span>
+                </td>
+                <td>
+                    <input class="free-label" id="freeTrue" type="radio" name="web_free" value="1">
+                    <label class="free-label" for="freeTrue">免费</label>&nbsp;&nbsp;&nbsp;
+                    <input class="free-label" id="freeFalse" type="radio" name="web_free" value="0">
+                    <label class="free-label" for="freeFalse">收费</label>
+                </td>
+            </tr>
+            <tr>
+                <td>选择类别
+                    <span class="star">*</span>
+                </td>
+                <td>
+                    <select name="cate_id" id="webCate">
+                        <option selected value="-1">请选择</option>
+                        <!--<option value="1">设计1</option>
+                        <option value="2">设计2</option>
+                        <option value="3">设计3</option>
+                        <option value="4">设计4</option>-->
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>网站链接
+                    <span class="star">*</span>
+                </td>
+                <td>
+                    <input id="webUrl" class="oneline_input" type="text" name="web_url">
+                </td>
+            </tr>
+            <tr>
+                <td>网站描述</td>
+                <td>
+                    <textarea id="webIntro" cols="30" rows="10" name="web_intro"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>logo上传
+                    <span class="star">*</span>
+                </td>
+                <td>
+                    <div id="previewArea" class="file_input_btn">
+                        <input id="imgInput" name="web_logo" type="file" accept="image/gif, image/jpeg, image/png">
+                        <span>点击选择图片</span>
+                        <div class="up_again">
+                            点击重新
+                            <br>选择图片
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <button type="submit" id="shareSiteBtn" class="btn_primary share">分享网站</button>
+    </form>
+</div>
+<!-- modal end -->
